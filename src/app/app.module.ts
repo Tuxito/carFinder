@@ -3,18 +3,27 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { RouterModule}  from '@angular/router'
 import { AppComponent } from './app.component';
+import { CarsListComponent } from './cars/cars-list.component';
+
+import { CarsService } from './services/cars.service';
+
+import { appRoutes } from './app.routes'; 
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarsListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

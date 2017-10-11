@@ -1,0 +1,52 @@
+<div class="col-md-12">
+    <h3>{{message}}</h3>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="brand">Brand</label>
+            <select name = "brand" (change)="onChangeBrand($event.target.value)" >            
+                <option value="">Select brand...</option>
+                
+                <option *ngFor="let brand of carBrandCollection" 
+                        [value] = "brand.id">
+                        {{ brand.description }}
+                </option>
+            </select>
+
+            <label for="model">Model</label>
+            <select name = "model" (change)="onChangeModel($event.target.value)" >                        
+                <option value="">Select model...</option>
+                
+                <option *ngFor="let model of carModelCollection" 
+                        [value] = "model.id">
+                        {{ model.description }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th bgcolor="#80ccff">#</th>
+                    <th bgcolor="#80ccff">Description</th>
+                    <th bgcolor="#80ccff">Engine Size</th>
+                    <th bgcolor="#80ccff">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-model="version" *ngFor="let version of carVersionCollection" >
+                        <td>{{version.id}}</td>
+                        <td>{{version.description}}</td>
+                        <td>{{version.engineSize}}</td>
+                        <td>{{version.lastPrice}}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
